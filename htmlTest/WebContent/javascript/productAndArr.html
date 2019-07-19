@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var product = {
+				name: 'Microsoft Visual Studio 2010 Ultimate',
+				price: '15,000,000원',
+				language: '한국어',
+				supportOS: 'Win 32/64',
+				subscription: true };
+		var output = '';
+		for ( var key in product) {
+			output += '●' + key + ': ' + product[key] + '\n';
+		}
+		
+		var arr = [1, 2, 3, 4, 5];
+		for ( var key in arr) {
+			output += '●' + key + ': ' + arr[key] + '\n';
+		}
+		
+		alert(output);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

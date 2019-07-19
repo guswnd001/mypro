@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var array = ['A', 'B', 'C', 'D'];
+		
+		var array1 = [52, 273, 103, 57, 32];
+		var array2 = new Array();
+		var array3 = new Array(10);
+		var array4 = new Array(52, 273, 103, 57, 32);
+		
+		var output = '';
+		for (var i = 0; i < array.length; i++) {
+			output += i + ' : ' + array[i] + '\n';
+		}
+		//alert(output);
+		
+		array1.sort(function (left, right) {
+			return right - left;
+		})
+		//alert(array1);
+		
+		var myFunction = function (array) {
+			var tmp = 0;
+			
+			for (var i = 0; i < array.length - 1; i++) {
+				for (var j = i + 1; j < array.length; j++) {
+					if (array[i] > array[j]) {
+									
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

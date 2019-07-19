@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		window.onload = function () {
+			var header = document.getElementById('myHeader');
+			var header2 = document.getElementById('myHeader2');
+			var handler = function () {
+				this.style.color = 'red';
+				this.removeEventListener('click', handler);
+			};
+			header.addEventListener('click', handler);
+			header2.addEventListener('click', handler);
+		};
+	</script>
+</head>
+<body>
+	<h1 id="myHeader">Click</h1>
+	<h1 id="myHeader2">Click</h1>
+</body>
+</html>

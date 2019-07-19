@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="http://code.jquery.com/jquery-1.7.js"></script>
+	<script>
+		$(document).ready(function () {
+			//var src = $('img').attr('src');
+			//alert(src);
+			$('img').attr(
+					{width: function (index) {
+						return (index + 1) * 100; }, 
+					height: 100} );
+		});
+	</script>
+</head>
+<body>
+	<img src="acne01.jpg"/>
+	<img src="acne02.jpg"/>
+	<img src="acne03.jpg"/>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		* {
+			margin: 0px; padding: 0px;
+		}
+		
+		div {
+			margin: 10px; padding: 10px;
+			border: 3px solid black;
+			border-radius: 10px;
+		}
+	</style>
+	<meta charset="UTF-8">
+	<script src="http://code.jquery.com/jquery-1.7.js"></script>
+	<script>
+		$(document).ready(function () {
+			/* $('div').on('click', function () {
+				$(this).clone().appendTo('body');
+			}); */
+			
+			$('#upper_div').on('click', 'div', function () {
+				$(this).clone().appendTo('#upper_div');
+				$(this).clone().appendTo('#lower_div');
+			})
+		});
+	</script>
+</head>
+<body>
+	<div id="upper_div">
+		<div>
+			<h1>리승주</h1>
+			<p>내래 리승주다.</p>
+		</div>
+		
+	</div>
+	<div id="lower_div">
+		
+	</div>
+</body>
+</html>

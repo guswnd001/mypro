@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		function makeStudent(name, korean, math, english, science) {
+			var willReturn = {
+					이름: name,
+					국어: korean, 
+					수학: math,
+					영어: english, 
+					과학: science,
+					getSum: function() {
+						return this.국어 + this.수학 + this.영어 + this.과학;
+					},
+					getAvg: function() {
+						return this.getSum() / 4;
+					},
+					toString: function() {
+						return this.이름 + '\t' + this.getSum() + '\t' + this.getAvg();
+					}
+			};
+			
+			return willReturn;
+		}
+		
+		var students = [];
+		students.push(makeStudent('이승주', 90, 88, 82, 93));
+		students.push(makeStudent('김주호', 90, 80, 82, 78));
+		students.push(makeStudent('이승해', 78, 88, 95, 88));
+		students.push(makeStudent('이주한', 82, 98, 96, 90));
+		
+		
+		var output = '이름\t총점\t평균\n';
+		/* for ( var i in students) {
+			with (students[i]) {
+				output += 이름 + '\t' + getSum() + '\t' + getAvg() + '\n';
+			}
+		}
+		alert(output); */
+		
+		for ( var i in students) {
+			output += students[i].toString() + '\n';
+		}
+		alert(output);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

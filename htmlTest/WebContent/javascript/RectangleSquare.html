@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		function Rectangle(w, h) {
+			var width = w;
+			var height = h;
+		
+			this.getWidth = function() { return width; };
+			this.getHeight = function() { return height; };
+		
+			this.setWidth = function(value) {
+				if (value < 0) {
+					throw '길이는 음수일 수 없습니다.';
+				} else {
+					width = value;
+				}
+			};
+			this.setHeight = function(value) {
+				if (value < 0) {
+					throw '길이는 음수일 수 없습니다.';
+				} else {
+					height = value;
+				}
+			};
+		}
+		Rectangle.prototype.getArea = function() {
+			return this.getWidth() * this.getHeight();
+		}
+	</script>
+	<script>
+		function Square(length) {
+			this.base = Rectangle; //자바의 상속처럼 Rectangle의 생성자 형태를 물려받는다.
+			this.base(length, length);
+		}
+		Square.prototype = Rectangle.prototype;
+		
+		var rectangle = new Rectangle(5, 7);
+		var square = new Square(5);
+		
+		//alert(rectangle.getArea() + ' : ' + square.getArea());
+		//square 인스턴스가 Rectangle을 상속받았는지 여부 확인.
+		//alert(square instanceof Rectangle); 
+	</script>
+	<script>
+		function Square(length) {
+			Rectangle.call(this, length, length);
+		}
+		Square.prototype = new Rectangle();
+		Square.prototype.constructor = Square;
+		
+		var square = new Square(5);
+		alert(square.getArea());
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		* {
+			margin: 5px; padding: 5px;
+			border: 3px solid black;
+		}
+	</style>
+	<meta charset="UTF-8">
+	<script src="../js/jquery.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('a').click(function (event) {
+				$(this).css('background-color', 'blue');
+				//event.preventDefault();
+				return false; //아래의 function을 실행하지 않음
+			});
+			
+			$('h1').click(function () {
+				$(this).css('background-color', 'Red');
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>
+		<a href="http://www.naver.com">naver</a>
+	</h1>
+</body>
+</html>

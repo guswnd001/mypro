@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var student = {};
+		student.이름 = '이승주';
+		student.취미 = '만화보기';
+		student.특기 = '프로그래밍';
+		student.장래희망 = '웹툰작가';
+		student.toString = function() {
+			var output = '';
+			for ( var key in this) {
+				if (key != 'toString') {
+					output += key + '\t' + this[key] + '\n';
+				}
+			}
+			return output;
+		};
+		
+		alert(student.toString());
+		
+		delete(student.장래희망);
+		
+		alert(student);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

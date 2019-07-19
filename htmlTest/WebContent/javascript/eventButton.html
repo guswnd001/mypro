@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		window.onload = function () {
+			var buttonA = document.getElementById('button_a')
+			var buttonB = document.getElementById('button_b')
+			var counterA = document.getElementById('counter_a')
+			var counterB = document.getElementById('counter_b')
+			//var num = 1;
+			
+			buttonA.onmouseover = function () {
+				/* counterA.innerHTML = num;
+				num++; */
+				counterA.innerHTML = Number(counterA.innerHTML) + 1;
+			}
+			
+			function bB() {
+				counterB.innerHTML += 0;
+			}
+			buttonB.onclick = bB;
+		}
+	</script>
+</head>
+<body>
+	<button id="button_a">ButtonA</button>
+	<button id="button_b">ButtonB</button>
+	<h1>Button A - <span id="counter_a">0</span></h1>
+	<h1>Button B - <span id="counter_b">0</span></h1>
+</body>
+</html>

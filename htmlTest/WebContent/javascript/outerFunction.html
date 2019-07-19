@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		/* function outerFunction() {
+			return function() {
+				alert('Hello..!');
+			};
+		}
+		
+		outerFunction(); */
+		
+		function outerFunction(name) {
+			var output = 'Hello ' + name + '...!';
+			return function() {
+				return output;
+				
+			};
+		}
+
+
+		var first = outerFunction('JSP');
+		var second = outerFunction('JQ');
+	
+		alert(first());	
+		alert(second());	
+	</script>
+</head>
+<body>
+
+</body>
+</html>

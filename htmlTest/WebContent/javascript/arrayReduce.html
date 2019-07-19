@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var array = [1, 2, 3, 4, 5];
+		var output = '';
+		
+		/* array.reduce(function (previousValue, currentValue, index) {
+			output += previousValue + ' : ' + currentValue + ' : ' + index + '\n';
+			return previousValue + currentValue;
+		}); */
+		var result = 
+			array.reduce(function (previousValue, currentValue, index) {
+				return previousValue + currentValue;
+			});
+		
+		//alert(output);
+		alert(result);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

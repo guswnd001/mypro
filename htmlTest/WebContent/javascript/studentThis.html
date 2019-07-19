@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		function Student(name) { this.name = name; }
+		var student = new Student('김현중');
+		
+		/* alert(student instanceof Student);
+		alert(student.name); */
+		
+		/* function Rectangle(width, height) {
+			this.width = width;
+			this.height = height;
+		}
+		Rectangle.prototype.getArea = function() {
+			return this.width * this.height;
+		}
+		
+		var rectangle = new Rectangle(3, 4);
+		rectangle.width = -2; */
+		/* alert('AREA: ' + rectangle.getArea()); */
+		
+		//생성자 함수를 선언
+		function Rectangle(w, h) {
+			var width = w;
+			var height = h;
+			
+			this.getWidth = function() { return width; };
+			this.getHeight = function() { return height; };
+			
+			this.setWidth = function(value) {
+				if (value < 0) {
+					throw '길이는 음수일 수 없습니다.';
+				} else {
+					width = value;
+				}
+			};
+			this.setHeight = function(value) {
+				if (value < 0) {
+					throw '길이는 음수일 수 없습니다.';
+				} else {
+					height = value;
+				}
+			};
+		}
+		Rectangle.prototype.getArea = function() {
+			return this.getWidth() * this.getHeight();
+		}
+		
+		var rectangle = new Rectangle(5, 7);
+		rectangle.setWidth(-2);
+		alert('AREA: ' + rectangle.getArea());
+	</script>
+</head>
+<body>
+
+</body>
+</html>

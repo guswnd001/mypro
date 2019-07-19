@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var array = [1, 2, 3, 4, 5, 6, 7, 4, 9, 10];
+		
+		var output1 = array.indexOf(4); //앞에서부터 '4'를 찾아 위치 인덱스를 리턴
+		var output2 = array.indexOf(8); //'8'이 없기 때문에 -1를 리턴
+		var output3 = array.lastIndexOf(4); //뒤에서부터 '4'를 찾아 앞에서부터의 인덱스를 리턴
+		var output4 = array.lastIndexOf(8);
+		
+		var output = '';
+		output += output1 + ' : ' + output2 + '\n';
+		output += output3 + ' : ' + output4;
+		//alert(output);
+		
+		var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+		
+		var sum = 0;
+		var output = '';
+		array.forEach(function (element, index) {
+			sum += element;
+			output += index + ': ' + element + ' → ' + sum + '\n';
+		});
+		//alert(output);
+		
+		array = array.filter(function (element, index) {
+			return element <= 5;
+		});
+		alert(array);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

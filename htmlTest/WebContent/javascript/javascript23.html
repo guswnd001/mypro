@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var a1 = myArray();
+		var a2 = myArray(5);
+		var a3 = myArray(1, 2, 3, 4, 5, 6, 7, 8, 9);
+		
+		alert(a1 + ' : ' + a2 + ' : ' + a3);
+		
+		function myArray() {
+			var output = '';
+			var len = arguments.length;
+			if (len == 1) {
+				for (var i = 0; i < arguments[0]; i++) {
+					output += ', ';
+				}				
+				
+			} else if (len > 1) {
+				for ( var i in arguments) {
+					output += arguments[i] + ', ';
+				}
+			}
+			return output;
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var object = { name: '리승주' };
+		Object.defineProperty(object, 'gender', { value: 'Male' });
+		
+		var descriptors = [];
+		descriptors.push(Object.getOwnPropertyDescriptor(object, 'name'));
+		descriptors.push(Object.getOwnPropertyDescriptor(object, 'gender'));
+		
+		var output = '';
+		
+		for ( var i in descriptors) {
+			var item = descriptors[i];
+			for ( var key in item) {
+				output += key + ' : ' + item[key] + '\n';
+			}
+			output += '-----------------------------\n';
+		}
+		
+		alert(output);
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

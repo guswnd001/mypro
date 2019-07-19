@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		/* var value = 0;
+		do {
+			alert(value + '번째 반복문');
+			value++;
+		} while (value < 5); */
+		
+		/* for (var value = 0; value < 5; value++) {
+			alert(value + '번째 반복문')
+		} */
+		
+		/* var array = ['포도', '사과', '망고', '키위'];
+		
+		for ( var i in array) {
+			alert(array[i]);
+		} */
+		
+		var output = '';
+		/* for (var i = 0; i < 10; i++) {
+			for (var j = 0; j < i; j++) {
+				output += '*';
+			}
+			output += '\n';
+		} */
+		
+		/* var num = 7;
+		for (var i = 8; i < 16; i++) {
+			for (var j = 0; j < num ; j++) {
+				output += ' ';
+			}
+			for (var k = num; k < i; k++) {
+				output += '*';
+			}
+			output += '\n';
+			num--;
+		} */
+		
+		for (var i = 0; i < 8; i++) {
+			for (var j = 0; j < 7 - i; j++) {
+				output += ' ';
+			}
+			for (var k = 7 - i; k < 8 + i; k++) {
+				output += '*';
+			}
+			output += '\n';
+		}
+		
+		alert(output);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

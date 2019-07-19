@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		/* function callFunctionTenTimes(otherFunction) {
+			for (var i = 0; i < 10; i++) {
+				otherFunction();
+			}
+		}
+		
+		callFunctionTenTimes(function() {
+			alert('Hello!');
+		}); */
+		
+		function callFunctionTenTimes(otherFunction) {
+			for (var i = 0; i < 10; i++) {
+				otherFunction();
+			}
+		}
+		function justFunction() {
+			alert('Hello!');
+		}
+		
+		callFunctionTenTimes(justFunction);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

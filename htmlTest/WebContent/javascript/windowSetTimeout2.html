@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		//윈도우가 로드될 때
+		window.onload = function () {
+			var num = 1;
+			
+			//1초마다 함수를 실행
+			var intervalID = setInterval(function () {
+				document.body.innerHTML += '<p>' + num + ': ' + new Date() + '</p>';
+				num++;
+			}, 1000);
+			
+			setTimeout(function () {
+				//타이머를 종료합니다.
+				clearInterval(intervalID);
+			}, 10000);
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

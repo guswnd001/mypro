@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script> //생성자 부분
+		function nextRandomInteger(limit) {
+			return Math.round(Math.random() * limit);
+		}
+		
+		var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		
+		function randomAlphabet() {
+			return alphabet.charAt(nextRandomInteger(25));
+		}
+		
+		function randomSpeed(maxSpeed) {
+			return Math.random() * maxSpeed - Math.random() * maxSpeed;
+		}
+		
+		
+	</script>
+	<script> //메소드 부분
+		function MovingText() {
+			this.x = nextRandomInteger(canvasWidth);
+			this.y = nextRandomInteger(canvasHeight);
+			this.vX = randomSpeed(3);
+			this.vY = randomSpeed(3);
+			
+			this.h1 = document.createElement('h1');
+			this.h1.innerHTML = randomAlphabet();
+			this.h1.style.position = 'absolute';
+			
+			document.body.appendChild(this.h1);
+			
+			/* 알파벳에 커서를 갖다 대었을 때, 알파벳이 지워지면서 카운트되는 코드를 만드세요. */
+			var counter = document.getElementById('counter');
+			
+			this.h1.onmouseover = function () {
+				counter.innerHTML = Number(counter.innerHTML) + 1;
+				document.body.removeChild(this);
+			}
+		}
+		
+		var canvasWidth = 700;
+		var canvasHeight = 500;
+		
+		MovingText.prototype.move = function () {
+			if (this.x < 0 || this.x > canvasWidth) {
+				this.vX *= -1;
+			}
+			if (this.y < 0 || this.y > canvasHeight) {
+				this.vY *= -1;
+			}
+			
+			this.x += this.vX;
+			this.y += this.vY;
+			
+			this.h1.style.left = this.x + 'px';
+			this.h1.style.top = this.y + 'px';
+		}
+		
+	</script>
+	<script> //실행 부분
+		window.onload = function () {
+			var movingTexts = [];
+			
+			for (var i = 0; i < 100; i++) {
+				movingTexts.push(new MovingText());
+			}
+			var startTime = new Date().getTime();
+			
+			var Game = setInterval(function () {
+				for ( var i in movingTexts) {
+					movingTexts[i].move();	
+				}
+				
+				if (Number(counter.innerHTML) == 100) {
+					var endTime = new Date().getTime();
+					alert('끝! 당신이 걸린 시간은 ' + (endTime - startTime) / 1000 + '초');
+					clearInterval(Game);
+				}
+			}, 1000 / 23);
+		};
+	</script>
+</head>
+<body>
+	<div style="font-size: 24px">COUNT : <span id="counter">0</span></div>
+	<div></div>
+</body>
+</html>

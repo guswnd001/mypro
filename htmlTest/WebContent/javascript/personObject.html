@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var person = {
+				name: '리승주',
+				gender: 'Male',
+				region: 'Seoul, Korea',
+				nobby: 'Guitar'
+		};
+		
+		Object.seal(person);
+		delete person.name;
+		
+		//alert(person.name);
+		
+		var object = { name: '리승주' };
+		
+		Object.defineProperty(object, 'gender', { value: 'Male' });
+		
+		alert(Object.keys(object));
+		alert(Object.getOwnPropertyNames(object));
+	</script>
+</head>
+<body>
+
+</body>
+</html>

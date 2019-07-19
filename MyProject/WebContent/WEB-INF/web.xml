@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>MyProject</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <jsp-config>
+  	<jsp-property-group>
+  		<url-pattern>/view/*</url-pattern>
+  		<include-prelude>/common/header.jsp</include-prelude>
+  	</jsp-property-group>
+  </jsp-config>
+</web-app>
+<!-- 서버를 시작하면 web.xml부터 읽기 시작하여 web.xml의 내용을 어플리케이션에 저장을 한다. -->
+<!-- 프로젝트를 처음 접할 시, web.xml을 먼저 확인하여 api를 파악한다. -->
+<!-- 그 다음, api 빌딩이 잘 되어 있는지 jar path를 확인한다. -->
+<!-- 마지막으로 view(index)로 가서 잘 실행이 되는지 총체적인 확인을 한다. -->

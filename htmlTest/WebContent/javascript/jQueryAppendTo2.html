@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="http://code.jquery.com/jquery-1.7.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('img').css('width', 250);
+			
+			setInterval(function () {
+				$('img').first().appendTo('body');
+			}, 2000);
+		});
+	</script>
+</head>
+<body>
+	<img src="JJoo.jpg">
+	<img src="acne01.jpg">
+	<img src="acne02.jpg">
+	<img src="Penguins.jpg">
+	<img src="Chrysanthemum.jpg">
+</body>
+</html>

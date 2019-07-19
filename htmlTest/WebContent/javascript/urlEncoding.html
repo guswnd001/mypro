@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var url = 'http://hanb.co.kr?test=한글입니다.';
+		
+		var output = '';
+		
+		output += '★escape( )\n'
+		output += escape(url) +'\n\n';
+		
+		output += '★encodeUrl( )\n'
+		output += encodeURI(url) +'\n\n';
+		
+		output += '★encodeUrlComponent( )\n'
+		output += encodeURIComponent(url) +'\n\n';
+		
+		alert(output);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

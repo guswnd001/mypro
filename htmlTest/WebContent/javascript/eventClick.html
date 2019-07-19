@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		window.onload = function () {
+			var header = document.getElementById('header');
+			
+			/* function whenClick() {
+				alert('Click');
+				header.onclick = null;
+			}
+			header.onclick = whenClick; */
+			
+			header.onclick = function () { 
+				alert('Click'); 
+				header.onclick = null;
+			}
+		};
+	</script>
+</head>
+<body>
+	<h1 id="header">click</h1>
+</body>
+</html>

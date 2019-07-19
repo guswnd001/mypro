@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var object = Object.create({}, {
+			name: { value: '리승주', enumerable: true },
+			gender: { value: 'Male', enumerable: true }
+		});
+		
+		var person = Object.create(object, {
+			region: { value: '평양', enumerable: true },
+			hoppy: { value: '총검술', enumerable: true }
+		});
+		
+		alert(Object.getOwnPropertyNames(person) + '\n' + Object.keys(person));
+		alert(person.name + ' : ' + person.gender);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

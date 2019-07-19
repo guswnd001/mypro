@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var child = window.open('', '', 'width= 300, height= 200');
+		//x, y 좌표로 이동
+		child.moveTo(0, 0);
+		
+		setInterval(function () {
+			//주어진 값을 x, y에 더한 만큼 이동
+			child.moveBy(1, 10);
+		}, 10);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

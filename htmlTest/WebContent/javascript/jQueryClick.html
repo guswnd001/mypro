@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		* { margin: 0px; padding: 0px; }
+		div {
+			margin: 5px; padding: 3px;
+			border-width: 3px;
+			border-style: solid;
+			border-color: black;
+			border-radius: 10px;
+		}
+	</style>
+	<meta charset="UTF-8">
+	<script src="http://code.jquery.com/jquery-1.7.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('div').click(function () {
+				var header = $(this).find('h1').text();
+				var paragraph = $('p', this).text();
+				
+				alert(header + '\n' + paragraph);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<h1>Header 1</h1>
+		<p>Paragraph 1</p>
+	</div>
+	<div>
+		<h1>Header 2</h1>
+		<p>Paragraph 2</p>
+	</div>
+	<div>
+		<h1>Header 3</h1>
+		<p>Paragraph 3</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var object = {};
+		Object.defineProperty(object, 'name', {
+			value: '리승주',
+			writable: false
+		});
+		
+		alert(Object.isExtensible(object));
+		Object.preventExtensions(object);		
+		alert(Object.isExtensible(object));
+		
+		//간단한 객체 속성 추가 방법
+		object.dream = '생명공학자';
+		
+		//복잡한 객체 속성 추가 방법
+		Object.defineProperty(object, 'showMeTheMoney', {
+			value: true
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>

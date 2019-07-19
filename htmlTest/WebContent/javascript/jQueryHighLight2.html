@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<style>
+		.high_light_0 { background:Yellow; }
+		.high_light_1 { background:Orange; }
+		.high_light_2 { background:Purple; }
+		.high_light_3 { background:Green; }
+		.high_light_4 { background:Red; }
+		.high_light_5 { background:Skyblue; }
+	</style>
+	<script src="http://code.jquery.com/jquery-1.7.js"></script>
+	<script>
+		$.noConflict(); //'$'를 사용하지 못하게 만듬, '$' 대신 'jQuery'를 써야함
+		var j = jQuery;
+		j(document).ready(function () {
+			/* $('h1').each(function (index, item) {
+				//방법 1.
+				//$(item).addClass('high_light_' + index);
+				//방법 2.
+				$(this).addClass('high_light_' + index);
+			}) */
+			//방법 3.
+			j('h1').addClass(function (index) {
+				return 'high_light_' + index;
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>item - 0</h1>
+	<h1>item - 1</h1>
+	<h1>item - 2</h1>
+	<h1>item - 3</h1>
+	<h1>item - 4</h1>
+	<h1>item - 5</h1>
+</body>
+</html>

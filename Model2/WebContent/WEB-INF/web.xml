@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+
+  <display-name>MyProject</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- <servlet>
+  	<servlet-name>now</servlet-name>
+  	<servlet-class>now.NowServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>now</servlet-name>
+  	<url-pattern>/now</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>DBCPInit2</servlet-name>
+  	<servlet-class>jdbc.DBCPInit2</servlet-class>
+  	
+  	<init-param>
+  		<param-name>jdbcDriver</param-name>
+  		<param-value>com.mysql.jdbc.Driver</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>jdbcUrl</param-name>
+  		<param-value>jdbc:mysql://localhost:3306/jspdb</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>dbUser</param-name>
+  		<param-value>scott</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>dbPass</param-name>
+  		<param-value>1111</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>poolName</param-name> 
+  		<param-value>ch14</param-value>
+  	</init-param>
+  	<load-on-startup></load-on-startup>
+  </servlet> -->
+  
+  <servlet>
+  	<servlet-name>SimpleController</servlet-name>
+  	<servlet-class>mvc.simple.SimpleController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>SimpleController</servlet-name>
+  	<url-pattern>/simple</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ControllerUsingFile</servlet-name>
+  	<servlet-class>mvc.controller.ControllerUsingFile</servlet-class>
+  	<init-param>
+  		<param-name>configFile</param-name>
+  		<param-value>/WEB-INF/commandHandler.properties</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ControllerUsingFile</servlet-name>
+  	<url-pattern>/controllerUsingFile</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ControllerUsingURI</servlet-name>
+  	<servlet-class>mvc.controller.ControllerUsingURI</servlet-class>
+  	<init-param>
+  		<param-name>configFile</param-name>
+  		<param-value>
+  			/WEB-INF/commandHandlerURI.properties
+  		</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ControllerUsingURI</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+  	<filter-name>NullParameter</filter-name>
+  	<filter-class>filter.NullParameterFilter</filter-class>
+  	<init-param>
+  		<param-name>parameterNames</param-name>
+  		<param-value>id,name</param-value>
+  	</init-param>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>NullParameter</filter-name>
+  	<url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
+  <!-- Filter는 해당되는 url이 실행되기 전에 먼저 작동한다.-->
+  
+  
+  <filter>
+  	<filter-name>LoginCheck</filter-name>
+  	<filter-class>filter.LoginCheckFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>LoginCheck</filter-name>
+  	<url-pattern>/board/*</url-pattern>
+  </filter-mapping>
+  
+  
+  <filter>
+  	<filter-name>CharacterEncodingFilter</filter-name>
+  	<filter-class>util.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>CharacterEncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern> <!-- 모든 파일에 Filter를 적용한다.  -->
+  </filter-mapping>
+  
+  <listener>
+  	<listener-class>jdbc.DBCPInitListner</listener-class>
+  </listener>
+  
+ <context-param>
+  	<param-name>poolConfig</param-name>
+  	<param-value>
+  		jdbcDriver=com.mysql.jdbc.Driver
+  		jdbcUrl=jdbc:mysql://localhost:3306/jspdb?characterEncoding=utf8
+  		dbUser=scott
+  		dbPass=1111
+  		poolName=jspdb
+  	</param-value>
+  </context-param>
+
+</web-app>
+<!-- 서버를 시작하면 web.xml부터 읽기 시작하여 web.xml의 내용을 어플리케이션에 저장을 한다. -->
+<!-- 프로젝트를 처음 접할 시, web.xml을 먼저 확인하여 api를 파악한다. -->
+<!-- 그 다음, api 빌딩이 잘 되어 있는지 jar path를 확인한다. -->
+<!-- 마지막으로 view(index)로 가서 잘 실행이 되는지 총체적인 확인을 한다. -->

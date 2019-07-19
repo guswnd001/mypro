@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="http://code.jquery.com/jquery-1.7.js"></script>
+	<script>
+		$(document).ready(function () {
+			/* $('h3:even').css({
+				backgroundColor: 'black',
+				color: 'yellow'
+			}); */
+			
+			/* $('h3').filter(':even').css({
+				backgroundColor: 'black',
+				color: 'red'
+			}); */
+			
+			/* $('h3').filter(function (index) {
+				return index % 2 == 0;
+			}).css({
+				backgroundColor: 'black',
+				color: 'skyblue'
+			}); */
+			
+			/* $('h3').css('background', 'Orange')
+			.filter(':even').css('color', 'white'); */
+			
+			/* $('h3').eq(0).css('background', 'Orange'); //맨 첫번째
+			$('h3').eq(-1).css('background', 'Red');   //맨 마지막 */
+			
+			$('h1').css('background', 'purple').add('h2').css('float', 'left');
+			
+		});
+	</script>
+</head>
+<body>
+	<h1>Header-0</h1>
+	<h2>Header-1</h2>
+	<h1>Header-2</h1>
+	<h2>Header-3</h2>
+	<h1>Header-4</h1>
+	<h2>Header-5</h2>
+</body>
+</html>

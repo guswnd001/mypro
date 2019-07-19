@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var object = {};
+		Object.defineProperty(object, 'name', {
+			value: '리승주',
+			writable: true, //수정 가능 여부
+			enumerable: true //for문으로 볼 수 있는지 여부
+		});
+		
+		object.name = 'Other';
+		for ( var i in object) {
+			alert(i + ' : ' + object[i]);
+		}
+		
+		alert(object.name);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

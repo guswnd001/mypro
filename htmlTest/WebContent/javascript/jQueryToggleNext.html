@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="http://code.jquery.com/jquery-1.7.js"></script>
+	<script>
+		$(document).ready(function () {
+			/* $('h1').click(function () {
+				$(this).next().toggle('fast', function () {
+					//alert('EFFECT END..!');
+				});
+			}); */
+			
+			$('h1').toggle(function () {
+				$(this).next().hide('fast');
+			}, function () {
+				$(this).next().show('fast');
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>남한 & 북한</h1>
+	<div>
+		<h1>리승주</h1>
+		<p>내래 북한에서 왔지우</p>
+	</div>
+	<h1>남한 & 북한</h1>
+	<div>
+		<h1>리승주</h1>
+		<p>남조선 아새끼들 다 각오 하라우</p>
+	</div>
+</body>
+</html>

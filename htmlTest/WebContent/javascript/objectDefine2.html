@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var object = {};
+		var value = '리승주';
+		/* Object.defineProperty(object, 'name', {
+			get: function() {
+				alert('GETTER..!'); //두번째
+				return value;
+			},
+			set: function(newValue) {
+				alert('SETTER: ' + newValue); //첫번째
+				value = newValue;
+			}
+		});
+		
+		object.name = 'ALPHA';
+		alert(object.name); //세번째 */
+		
+		Object.defineProperty(object, 'name', {
+			get: function() { return value; },
+			set: function(newValue) { value = newValue; },
+			configurable: true
+		});
+		
+		Object.defineProperty(object, 'name', {
+			enumerable: true
+		});
+		
+		alert(object.name);
+		//for ( var i in object) { alert(object[i]); }
+	</script>
+</head>
+<body>
+	<form>
+		<!-- <button style="width: 200px; height: 100px;">새로고침</button> -->
+	</form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		window.onload = function () {
+			var clock = document.getElementById('clock');
+			
+			var nowTime = setInterval(function () {
+				var now = new Date();
+				clock.innerHTML = now.toString();
+			}, 1000);
+			
+			setTimeout(function () {
+				clearInterval(nowTime);
+			}, 3000);
+		};
+	</script>
+</head>
+<body>
+	<h1 id="clock"></h1>
+</body>
+</html>

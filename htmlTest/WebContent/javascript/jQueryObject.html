@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="http://code.jquery.com/jquery-1.7.js"></script>
+	<script>
+		/* $(document).ready(function () {
+			var object = {};
+			object.name = '리승주';
+			object.gender = '남자';
+			object.part = '남파공작원';
+		}); */
+		
+		$(document).ready(function () {
+			var object = { name: '리승주' };
+			
+			$.extend(object, {
+				gender: '남자',
+				part: '남파공작원'
+			});
+			
+			var output = '';
+			$.each(object, function (key, item) {
+				output += key + ': ' + item + '\n';
+			});
+			alert(output);
+		});
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

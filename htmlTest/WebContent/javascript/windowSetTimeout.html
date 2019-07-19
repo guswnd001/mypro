@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		//윈도우가 로드될 때 
+		window.onload = function () {
+			alert('클릭 시, 1초 후에 이 페이지는 종료됩니다.');
+			//3초 후에 함수를 실행합니다.
+			window.setTimeout(function () {
+				window.close();
+			}, 1000);
+		};
+	</script>
+</head>
+<body>
+
+</body>
+</html>

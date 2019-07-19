@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		var object = {};
+		Object.defineProperties(object, {
+			name: {
+				value: '리승주',
+			},
+			gender: {
+				value: 'Male',
+			}
+		});
+		
+		//alert(object.name);
+		//alert(object.gender);
+		
+		var object = Object.create( {}, {
+			name: { value: '리승주', enumerable: true },
+			gender: { value: 'Male', enumerable: true }
+		});
+		alert(Object.keys(object));
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		function nextRandomInteger(limit) {
+			return Math.round(Math.random() * limit);
+		}
+	
+		var stars = '☆★';
+	
+		function randomStar() {
+			return stars.charAt(nextRandomInteger(1));
+		}
+		
+		function Star(vindex) {
+			this.index = vindex;
+			this.h1 = document.createElement('h1');
+			this.h1.style.position = 'absolute';
+			this.h1.innerHTML = randomStar();
+			
+			var x = (vindex % 10);
+			var y = parseInt(vindex/10);
+			
+			console.log(x + ' : ' + y);
+			document.body.appendChild(this.h1);
+			
+			this.h1.style.left = (x*30) + 'px';
+			this.h1.style.top = (y*30) + 'px';
+			this.h1.onclick = function () {
+				//vindex 중요함
+				testFun(vindex, this);
+			}
+		}
+		
+		window.onload = function () {
+			for (var i = 0; i < 100; i++) {
+				new Star(i);
+			}
+		};
+		
+		function testFun(i, str) {
+			var temp = str.innerHTML;
+			alert(i + ' : ' + str.innerHTML);
+			
+			var eleNode = document.getElementsByTagName('h1');
+			eleNode[i].innerHTML = ' ';
+			
+			if (temp == eleNode[i+1].innerHTML) {
+				eleNode[i+1].innerHTML = ' ';
+			}
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Index</title>
+	<script>
+		window.onload = function () {
+			var headers = document.getElementsByTagName('h1');
+			
+			var output = '';
+			for ( var i in headers) {
+				output += i + '\n';
+			}
+			alert(output);
+			
+			alert(headers.item(0).innerHTML + ' : ' + headers.item(1).innerHTML);
+		}
+	</script>
+</head>
+<body>
+	<h1>Header1</h1>
+	<h1>Header2</h1>
+</body>
+</html>

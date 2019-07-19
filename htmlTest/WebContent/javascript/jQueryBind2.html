@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="http://code.jquery.com/jquery-1.7.js"></script>
+	<script>
+		$(document).ready(function () {
+			/* $('h1').bind('click', function () {
+				var length = $('h1').length;
+				var targetHTML = $(this).html();
+				
+				$('#wrap').append('<h1>' + length
+									+ ' - ' + targetHTML + '</h1>');	
+			}); */
+			
+			$('h5').live('click', function () {
+				var length = $('h5').length;
+				var targetHTML = $(this).html();
+				
+				$('#wrap').append('<h5>' + length
+									+ ' - ' + targetHTML + '</h5>');	
+			});
+			
+			setTimeout(function () {
+				$('h5').die();
+			}, 3000);
+		});
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<h5>리승주</h5>
+	</div>
+</body>
+</html>

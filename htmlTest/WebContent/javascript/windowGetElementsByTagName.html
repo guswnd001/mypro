@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script>
+		window.onload = function () {
+			var headers = document.getElementsByTagName('h1');
+			/* headers[0].innerHTML += ' with getElementsByTagName1()';
+			headers[1].innerHTML = 'with getElementsByTagName2()'; */
+			
+			/* for (var i = 0; i < headers.length; i++) {
+				headers[i].innerHTML = 'With getElementsByTagName()';
+			} */
+			
+			for ( var i in headers) {
+				headers[i].innerHTML = 'With getElementsByTagName()';
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Header</h1>
+	<h1>Header</h1>
+</body>
+</html>
