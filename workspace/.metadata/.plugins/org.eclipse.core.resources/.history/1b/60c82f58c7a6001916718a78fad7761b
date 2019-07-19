@@ -1,0 +1,3 @@
+/join.do=handler.JoinHandler
+/login.do=handler.LoginHandler
+/logout.do=handler.LogoutHandler
