@@ -32,4 +32,55 @@
 		WHERE comment_no = #{commentNo}
 	</select>
 	
+	<insert id="insertComment" parameterType="Comment">
+		INSERT INTO comment(comment_no, user_id, comment_content, reg_date)
+		VALUES (#{commentNo}, #{userId}, #{commentContent}, #{regDate})
+		<!-- getter의 이름이며, 대소문자를 구분한다. -->
+	</insert>
+	
+	<update id="updateComment" parameterType="Comment">
+		UPDATE comment SET
+			comment_content = #{commentContent}
+		WHERE comment_no = #{commentNo}
+	</update>
+	
+	<update id="updateCommentIf" parameterType="Comment">
+		UPDATE comment
+			<set>
+				<if test="commentContent != null">comment_content = #{commentContent},</if>
+				<if test="regDate != null">reg_date = #{regDate}</if>
+			</set>
+		WHERE comment_no = #{commentNo}
+	</update>
+	
+	<delete id="deleteComment" parameterType="long">
+		DELETE FROM comment
+		WHERE comment_no = #{commentNo}
+	</delete>
+	
+	<select id="selectCommentByConditionIf" parameterType="hashMap" resultMap="baseResultMap">
+		SELECT comment_no, 
+			   user_id, 
+			   comment_content, 
+			   reg_date
+		FROM comment
+		<where>
+			<if test="commentNo != null">
+				comment_no = #{commentNo}
+			</if>
+			<if test="ouserId != null">
+				AND user_id = #{userId}
+			</if>
+		</where>
+	</select>
+	
+	<update id="updateCommentTrim" parameterType="Comment">
+		UPDATE comment
+			<trim prefix="SET" suffixOverrides=","> 
+				<if test="commentContent != null">comment_content = #{commentContent},</if>
+				<if test="regDate != null">reg_date = #{regDate}</if>
+			</trim>
+		WHERE comment_no = #{commentNo}
+	</update>
+	
 </mapper>

@@ -1,5 +1,6 @@
 package main;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,9 +21,11 @@ public class Main01 {
 		li = csr.selectCommentByCondition(null);
 		System.out.println(li);
 		
+		
 		Comment com = csr.selectCommentByPrimaryKey(3L);
 		System.out.println(com);
 		
+		com = csr.selectCommentByPrimaryKey(6L);
+		System.out.println(com);
 	}
-
 }

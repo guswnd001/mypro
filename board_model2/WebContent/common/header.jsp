@@ -37,12 +37,12 @@
 
 <div class="w3-bar w3-blue-grey w3-large">
   <a href="<%= request.getContextPath() %>/view/member/main.jsp" class="w3-bar-item w3-button">Home</a>
-  <a href="<%= request.getContextPath() %>/view/board/list.jsp?boardid=1" class="w3-bar-item w3-button">공지사항</a>
-  <a href="<%= request.getContextPath() %>/view/board/list.jsp?boardid=2" class="w3-bar-item w3-button">자유게시판</a>
-  <a href="<%= request.getContextPath() %>/view/board/list.jsp?boardid=3" class="w3-bar-item w3-button">Q&A</a>
-  <a href="<%= request.getContextPath() %>/view/member/loginForm.jsp" class="w3-bar-item w3-button">회원될래</a>
-  <a href="<%= request.getContextPath() %>/view/chartjsPro/bar_sample.jsp" class="w3-bar-item w3-button">BarGraph</a>
-  <a href="<%= request.getContextPath() %>/view/awesomePro/awesomeCloud.jsp" class="w3-bar-item w3-button">WordCloud</a>
+  <a href="<%= request.getContextPath() %>/board/list.do?boardid=1" class="w3-bar-item w3-button">공지사항</a>
+  <a href="<%= request.getContextPath() %>/board/list.do?boardid=2" class="w3-bar-item w3-button">자유게시판</a>
+  <a href="<%= request.getContextPath() %>/board/list.do?boardid=3" class="w3-bar-item w3-button">Q&A</a>
+  <a href="<%= request.getContextPath() %>/member/loginForm.do" class="w3-bar-item w3-button">회원될래</a>
+  <a href="<%= request.getContextPath() %>/chartjsPro/bar_sample.do" class="w3-bar-item w3-button">BarGraph</a>
+  <a href="<%= request.getContextPath() %>/awesomePro/awesomeCloud.do" class="w3-bar-item w3-button">WordCloud</a>
   
 <%
  	String admin = (String)session.getAttribute("memId"); 

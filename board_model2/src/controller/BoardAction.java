@@ -115,5 +115,27 @@ public class BoardAction extends Action{
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public String contentGET(HttpServletRequest req, HttpServletResponse res)  throws Exception { 
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		BoardDBBeanMysql dbPro = BoardDBBeanMysql.getInstance();
+		
+		int num = Integer.parseInt(req.getParameter("num"));
+		String pageNum = req.getParameter("pageNum");
+		if (pageNum == null || pageNum == "") { pageNum = "1"; }
+		
+		HttpSession session = req.getSession();
+		String boardid = (String)session.getAttribute("boardid");
+		if (boardid == null || boardid == "") { boardid = "1"; }
+		
+		BoardDataBean article = dbPro.getArticle(num, boardid);
+		
+		req.setAttribute("num", num);
+		req.setAttribute("article", article);
+		req.setAttribute("pageNum", pageNum);
+		req.setAttribute("sdf", sdf);
+		
+		return "/view/board/content.jsp";
 	} 
 }

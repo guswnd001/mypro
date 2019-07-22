@@ -22,6 +22,7 @@
 	
 	<mappers>
 		<mapper resource="mapper/CommentMapper.xml"/>
+		<mapper resource="mapper/CommentMapperResultMap.xml"/>
 	</mappers>
 
 </configuration>

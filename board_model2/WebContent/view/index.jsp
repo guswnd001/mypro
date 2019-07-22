@@ -9,7 +9,7 @@
 </head>
 <body>
 http://localhost:7080/board_model2/board/list.do
-<% response.sendRedirect(request.getContextPath() + "/board/list.do"); %>
+<% response.sendRedirect(request.getContextPath() + "/board/list.do?boardid=1"); %>
 
 </body>
 </html>
