@@ -1,5 +1,4 @@
 /controller/
+/mybatis/
+/mapper/
 /dao/
-/filter/
-/handler/
-/model/

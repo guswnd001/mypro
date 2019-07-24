@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="mybatis.board">
+
+	<select id="getArticleCount" parameterType="string" resultType="int">
+		select ifnull(count(*), 0) 
+		from BOARD 
+		where boardid = #{boardid}
+	</select>
+	
+	<select id="getArticles" parameterType="hashmap" resultType="board">
+		select * 
+		from BOARD 
+		where boardid = #{boardid} 
+		order by ref desc, re_step 
+		limit #{start}, #{end}
+	</select>
+	
+</mapper>

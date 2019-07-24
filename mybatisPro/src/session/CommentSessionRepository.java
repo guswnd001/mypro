@@ -143,4 +143,65 @@ public class CommentSessionRepository {
 			sqlSession.close();
 		}
 	}
+	
+	public List<Comment> selectCommentByConditionChoose(Map<String, Object> condition) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		try {
+			return sqlSession.selectList(namespace + ".selectCommentByConditionChoose", condition); 
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	public List<Comment> selectCommentByConditionTrim(Map<String, Object> condition) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		try {
+			return sqlSession.selectList(namespace + ".selectCommentByConditionTrim", condition); 
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	public List<Comment> selectCommentByConditionForeach(Map<String, Object> condition) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		try {
+			return sqlSession.selectList(namespace + ".selectCommentByConditionForeach", condition); 
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	public List<Comment> selectOgnlStaticMethod() {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		try {
+			return sqlSession.selectList(namespace + ".selectOgnlStaticMethod"); 
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	public List<Comment> selectOgnlStaticField() {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		try {
+			return sqlSession.selectList(namespace + ".selectOgnlStaticField"); 
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	public List<Comment> selectOgnlStaticMethod2(Map<String, Object> condition) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		try {
+			return sqlSession.selectList(namespace + ".selectOgnlStaticMethod2", condition); 
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
 }

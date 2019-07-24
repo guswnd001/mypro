@@ -83,4 +83,76 @@
 		WHERE comment_no = #{commentNo}
 	</update>
 	
+	<select id="selectCommentByConditionChoose" parameterType="hashmap" resultType="Comment">
+		SELECT comment_no, user_id, comment_content, reg_date
+		FROM comment
+		<choose>
+			<when test="commentNo != null">
+				WHERE comment_no = #{commentNo}
+			</when>
+			<when test="userId != null">
+				WHERE user_id = #{userId}
+			</when>
+			<otherwise>
+				WHERE comment_no = 1
+				AND user_id = 'user1'
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="selectCommentByConditionTrim" parameterType="hashmap" resultMap="baseResultMap">
+		SELECT comment_no, user_id, comment_content, reg_date
+		FROM comment
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			<if test="commentNo != null">
+				AND comment_no = #{commentNo}
+			</if>
+			<if test="userId != null">
+				AND user_id = #{userId}
+			</if>
+		</trim>
+	</select>
+	
+	<select id="selectCommentByConditionForeach" parameterType="hashmap" resultType="Comment">
+		SELECT comment_no, user_id, comment_content, reg_date
+		FROM comment
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			<if test="commentNos != null">
+				comment_no IN
+				<foreach collection="commentNos" 
+						 item="commentNo" index="index" open="(" close=")" separator=",">
+					#{commentNo}
+				</foreach>
+			</if>
+		</trim>
+	</select>
+	
+	<select id="selectOgnlStaticMethod" resultType="Comment">
+		SELECT comment_no, user_id, comment_content, reg_date
+		FROM comment
+		<if test="_commentNo = @model.StaticSample@getCommentNo1()">
+			WHERE comment_no = ${_commentNo}
+		</if>
+	</select>
+	
+	<select id="selectOgnlStaticField" resultType="Comment">
+		SELECT comment_no, user_id, comment_content, reg_date
+		FROM comment
+		<if test="@model.StaticSample@commentNos != null">
+			WHERE comment_no IN
+			<foreach collection="@model.StaticSample@commentNos" 
+					 item="commentNo" index="index" open="(" close=")" separator=",">
+				${commentNo}
+			</foreach>
+		</if>	
+	</select>
+	
+	<select id="selectOgnlStaticMethod2" parameterType="hashmap" resultType="Comment">
+		SELECT comment_no, user_id, comment_content, reg_date
+		FROM comment
+		<if test="@model.StrigUtils@isNotEmpty(userId)">
+			WHERE user_id = #{userId}
+		</if>	
+	</select>
+	
 </mapper>

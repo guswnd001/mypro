@@ -118,7 +118,8 @@ public class BoardDBBeanMysql {
 		return x;
 	}
 	
-	public List<BoardDataBean> getArticles(int start, int pageSize, String boardid) {
+	//public List<BoardDataBean> getArticles(int start, int pageSize, String boardid) {
+	public List<BoardDataBean> getArticles(int start, int end, String boardid) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -132,7 +133,7 @@ public class BoardDBBeanMysql {
 					+ "limit ?, ?");
 			pstmt.setString(1, boardid);
 			pstmt.setInt(2, start);
-			pstmt.setInt(3, pageSize);
+			pstmt.setInt(3, end);
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {

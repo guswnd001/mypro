@@ -10,15 +10,21 @@ import javax.servlet.http.HttpSession;
 
 import com.sist.msk.Action;
 
+import dao.BoardDBBeanMybatis;
 import dao.BoardDBBeanMysql;
 import model.BoardDataBean;
 
 public class BoardAction extends Action{
 
 	public String listGET(HttpServletRequest req, HttpServletResponse res)  throws Exception { 
-		BoardDBBeanMysql dbPro = BoardDBBeanMysql.getInstance();
+		System.out.println("===================================");
+		BoardDBBeanMybatis dbPro = BoardDBBeanMybatis.getInstance();
 		HttpSession session = req.getSession();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		if (req.getParameter("boardid") != null) {
+			session.setAttribute("boardid", req.getParameter("boardid"));
+		}
 		
 		String boardid = (String)session.getAttribute("boardid");
 		if (boardid == null || boardid == "") {
@@ -138,4 +144,73 @@ public class BoardAction extends Action{
 		
 		return "/view/board/content.jsp";
 	} 
+	
+	public String updateGET(HttpServletRequest req, HttpServletResponse res) throws Exception { 
+		HttpSession session = req.getSession();
+		String boardid = (String)session.getAttribute("boardid");
+		if (boardid == null || boardid == "") { boardid = "1"; }
+		
+		int num = Integer.parseInt(req.getParameter("num"));
+		String pageNum = req.getParameter("pageNum");
+		
+		BoardDBBeanMysql dbPro = BoardDBBeanMysql.getInstance();
+		BoardDataBean article =  dbPro.getUpdate(num, boardid);
+
+		req.setAttribute("num", num);
+		req.setAttribute("pageNum", pageNum);
+		req.setAttribute("article", article);
+		
+		return "/view/board/updateForm.jsp";
+	}
+	
+	public String updatePOST(HttpServletRequest req, HttpServletResponse res) throws Exception { 
+		HttpSession session = req.getSession();
+		String num = req.getParameter("num");
+		String pageNum = req.getParameter("pageNum");
+		String boardid = (String)session.getAttribute("boardid");
+		if (boardid == null || boardid == "") { boardid = "1"; }
+		
+		BoardDataBean article = new BoardDataBean();
+		article.setNum(Integer.parseInt(num));
+		article.setWriter(req.getParameter("writer"));
+		article.setEmail(req.getParameter("email"));
+		article.setSubject(req.getParameter("subject"));
+		article.setPasswd(req.getParameter("passwd"));
+		article.setContent(req.getParameter("content"));
+		
+		
+		BoardDBBeanMysql dbPro = BoardDBBeanMysql.getInstance();
+		int check = dbPro.updateArticle(article, boardid);
+		
+		req.setAttribute("check", check);
+		req.setAttribute("num", num);
+		req.setAttribute("pageNum", pageNum);
+		
+		return "/view/board/updatePro.jsp";
+	}
+	
+	public String deleteGET(HttpServletRequest req, HttpServletResponse res) throws Exception { 
+		int num = Integer.parseInt(req.getParameter("num"));
+		String pageNum = req.getParameter("pageNum");
+		
+		req.setAttribute("num", num);
+		req.setAttribute("pageNum", pageNum);
+		
+		return "/view/board/deleteForm.jsp";
+	} 
+	
+	public String deletePOST(HttpServletRequest req, HttpServletResponse res) throws Exception { 
+		int num = Integer.parseInt(req.getParameter("num"));
+		String pageNum = req.getParameter("pageNum");
+		String passwd = req.getParameter("passwd");
+		
+		BoardDBBeanMysql dbPro = BoardDBBeanMysql.getInstance();
+		int check = dbPro.deleteArticle(num, passwd);
+		
+		req.setAttribute("check", check);
+		req.setAttribute("pageNum", pageNum);
+		
+		return "/view/board/deletePro.jsp";
+	} 
+	
 }

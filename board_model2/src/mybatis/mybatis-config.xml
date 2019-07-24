@@ -4,12 +4,9 @@
  
 <configuration>
 	
-	<settings>
-		<setting name="mapUnderscoreToCamelCase" value="true"/>
-	</settings>
-	
 	<typeAliases>
-		<typeAlias type="model.Comment" alias="Comment"/>
+		<!-- 여기에 모델별로 alias 추가 -->
+		<typeAlias type="model.BoardDataBean" alias="Board"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -25,9 +22,8 @@
 	</environments>
 	
 	<mappers>
-		<mapper resource="mapper/CommentMapper.xml"/>
-		<mapper resource="mapper/CommentMapperResultMap.xml"/>
-		<mapper class="session.CommentMapper"/>
+		<!-- 여기에 모델별로 mapper xml 추가 -->
+		<mapper resource="mybatis/board.xml"/>
 	</mappers>
 
 </configuration>
